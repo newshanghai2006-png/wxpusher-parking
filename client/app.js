@@ -137,7 +137,7 @@ async function downloadPoster() {
 
   context.fillStyle = bold ? "#ffffff" : colors.accent;
   context.font = "700 38px Microsoft YaHei, sans-serif";
-  context.fillText("手机浏览器或支付宝或者微信扫码，绝无恶意程序，一键提醒车主", 620, 1435);
+  context.fillText("一键提醒车主", 620, 1435);
   context.strokeStyle = bold ? "rgba(255,255,255,.3)" : "#dce4df";
   context.beginPath();
   context.moveTo(150, 1530);
