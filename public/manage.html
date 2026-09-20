@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>管理挪车码</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/"><span class="brand-mark"><i data-lucide="car-front"></i></span><span>挪车码</span></a><span class="topbar-note">安全管理</span></header>
+  <main class="manage-wrap">
+    <div class="manage-header"><p class="eyebrow">PRIVATE MANAGEMENT</p><h1>管理挪车码</h1></div>
+    <div id="manage-loading" class="panel loading">正在验证管理链接...</div>
+    <div id="manage-content" hidden>
+      <section class="stats">
+        <div class="stat"><strong id="stat-count">0</strong><span>累计提醒</span></div>
+        <div class="stat"><strong id="stat-last">尚未</strong><span>最近提醒</span></div>
+        <div class="stat"><strong id="stat-uid">-</strong><span>绑定 UID</span></div>
+      </section>
+      <form class="panel" id="manage-form">
+        <h2 class="section-title"><i data-lucide="settings-2"></i>公开内容</h2>
+        <div class="fields">
+          <div class="field"><label for="title">主标题</label><input id="title" name="title" maxlength="24" required></div>
+          <div class="field"><label for="note">给扫码人的话</label><textarea id="note" name="note" maxlength="80" required></textarea></div>
+          <div class="field-row">
+            <div class="field"><label>版式</label><div class="segmented"><input id="style-clean" type="radio" name="style" value="clean"><label for="style-clean">清爽</label><input id="style-bold" type="radio" name="style" value="bold"><label for="style-bold">醒目</label></div></div>
+            <div class="field"><label>主题色</label><div class="swatches"><input id="theme-green" type="radio" name="theme" value="green"><label class="swatch-green" for="theme-green"></label><input id="theme-blue" type="radio" name="theme" value="blue"><label class="swatch-blue" for="theme-blue"></label><input id="theme-amber" type="radio" name="theme" value="amber"><label class="swatch-amber" for="theme-amber"></label><input id="theme-mono" type="radio" name="theme" value="mono"><label class="swatch-mono" for="theme-mono"></label></div></div>
+          </div>
+          <p class="form-error" id="manage-error" role="alert"></p>
+          <div class="actions"><button class="primary" type="submit"><i data-lucide="save"></i>保存修改</button><a class="secondary" id="public-link" href="#" target="_blank"><i data-lucide="external-link"></i>打开扫码页</a><button class="danger-button" id="delete-button" type="button"><i data-lucide="trash-2"></i>永久删除</button></div>
+        </div>
+      </form>
+    </div>
+  </main>
+  <script type="module" src="/manage.js"></script>
+</body>
+</html>

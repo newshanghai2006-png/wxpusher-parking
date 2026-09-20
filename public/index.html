@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="免费生成可通过 WxPusher 匿名通知车主的挪车二维码">
+  <title>挪车码 - WxPusher 挪车提醒</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark"><i data-lucide="car-front"></i></span>
+      <span>挪车码</span>
+    </a>
+    <span class="topbar-note">由 WxPusher 提供消息通道</span>
+  </header>
+
+  <main class="workspace">
+    <section>
+      <div class="intro">
+        <p class="eyebrow">免费 · 无需登录</p>
+        <h1>做一张真正好用的挪车码</h1>
+        <p class="lead">访客扫码后一键提醒，车主微信即时收到通知。手机号不公开，二维码里也不包含 UID 或 AppToken。</p>
+      </div>
+
+      <form class="panel" id="create-form">
+        <h2 class="section-title"><i data-lucide="key-round"></i>连接 WxPusher</h2>
+        <div class="fields">
+          <div class="field">
+            <label for="uid">用户 UID <span class="hint">在 WxPusher 应用后台获取</span></label>
+            <input id="uid" name="uid" required maxlength="104" autocomplete="off" placeholder="UID_xxxxxxxxxx">
+          </div>
+          <div class="field">
+            <label for="app-token">应用 AppToken</label>
+            <div class="password-wrap">
+              <input id="app-token" name="appToken" type="password" required maxlength="164" autocomplete="off" placeholder="AT_xxxxxxxxxx">
+              <button class="icon-button" id="toggle-token" type="button" title="显示或隐藏 AppToken" aria-label="显示或隐藏 AppToken"><i data-lucide="eye"></i></button>
+            </div>
+          </div>
+
+          <h2 class="section-title"><i data-lucide="palette"></i>设计海报</h2>
+          <div class="field-row">
+            <div class="field">
+              <label for="title">主标题</label>
+              <input id="title" name="title" required maxlength="24" value="临时停车，请联系车主">
+            </div>
+            <div class="field">
+              <label>版式</label>
+              <div class="segmented">
+                <input id="style-clean" type="radio" name="style" value="clean" checked><label for="style-clean">清爽</label>
+                <input id="style-bold" type="radio" name="style" value="bold"><label for="style-bold">醒目</label>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="note">给扫码人的话</label>
+            <textarea id="note" name="note" required maxlength="80">给您带来不便，十分抱歉</textarea>
+          </div>
+          <div class="field">
+            <label>主题色</label>
+            <div class="swatches" role="radiogroup" aria-label="主题色">
+              <input id="theme-green" type="radio" name="theme" value="green" checked><label class="swatch-green" for="theme-green" title="松绿色"></label>
+              <input id="theme-blue" type="radio" name="theme" value="blue"><label class="swatch-blue" for="theme-blue" title="道路蓝"></label>
+              <input id="theme-amber" type="radio" name="theme" value="amber"><label class="swatch-amber" for="theme-amber" title="警示橙"></label>
+              <input id="theme-mono" type="radio" name="theme" value="mono"><label class="swatch-mono" for="theme-mono" title="黑白"></label>
+            </div>
+          </div>
+          <input class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="privacy-note"><i data-lucide="shield-check"></i><span>AppToken 将在 Worker 中加密后保存，仅在发送提醒时解密；生成后请妥善保存管理链接。</span></div>
+          <p class="form-error" id="form-error" role="alert"></p>
+          <button class="primary" id="create-button" type="submit"><i data-lucide="qr-code"></i>生成挪车码</button>
+        </div>
+      </form>
+    </section>
+
+    <aside class="preview-column">
+      <div class="preview-head"><h2>实时预览</h2><span>A4 竖版</span></div>
+      <div class="poster-shell">
+        <article class="poster" id="poster" data-theme="green" data-style="clean">
+          <div class="poster-topline"></div>
+          <p class="poster-kicker">PARKING NOTICE</p>
+          <h2 class="poster-title" id="preview-title">临时停车，请联系车主</h2>
+          <p class="poster-note" id="preview-note">给您带来不便，十分抱歉</p>
+          <div class="qr-frame" id="qr-frame"><div class="qr-placeholder"><span>生成后显示<br>可扫描二维码</span></div></div>
+          <p class="scan-copy">微信扫码，一键提醒车主</p>
+          <div class="poster-foot"><i data-lucide="bell-ring"></i><span>隐私联系 · 即时通知</span></div>
+        </article>
+      </div>
+      <div class="result" id="result" hidden>
+        <div class="success-strip"><i data-lucide="circle-check"></i><span>挪车码已生成，请下载或打印后放在车内。</span></div>
+        <div class="result-actions">
+          <button class="secondary" id="download-button" type="button"><i data-lucide="download"></i>下载高清 PNG</button>
+          <button class="secondary" id="print-button" type="button"><i data-lucide="printer"></i>打印海报</button>
+        </div>
+        <p class="manage-link">管理链接只显示一次：<a id="manage-link" href="#"></a></p>
+      </div>
+    </aside>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

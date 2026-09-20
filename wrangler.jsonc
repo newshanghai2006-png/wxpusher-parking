@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "wxpusher-parking",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "run_worker_first": ["/api/*", "/p/*", "/manage/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "wxpusher-parking",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "SEND_COOLDOWN_SECONDS": "60"
+  }
+}

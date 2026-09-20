@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>联系车主 - 挪车码</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="scan-page">
+    <section class="scan-card" id="scan-card">
+      <div class="scan-icon"><i data-lucide="car-front"></i></div>
+      <h1 id="scan-title">正在读取挪车码</h1>
+      <p class="note" id="scan-note">请稍候...</p>
+      <input class="honeypot" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="primary" id="notify-button" type="button" disabled><i data-lucide="bell-ring"></i><span>通知车主挪车</span></button>
+      <p class="scan-status" id="scan-status">点击后，车主将在微信收到一次挪车提醒。</p>
+      <p class="scan-brand">挪车码 · 隐私联系</p>
+    </section>
+  </main>
+  <script type="module" src="/scan.js"></script>
+</body>
+</html>

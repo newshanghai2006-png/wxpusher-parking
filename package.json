@@ -1,0 +1,22 @@
+{
+  "name": "wxpusher-parking-code",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild client/app.js client/scan.js client/manage.js --bundle --minify --outdir=public --entry-names=[name]",
+    "dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "db:local": "wrangler d1 migrations apply wxpusher-parking --local",
+    "db:remote": "wrangler d1 migrations apply wxpusher-parking --remote",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "lucide": "^0.468.0",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "wrangler": "^4.0.0"
+  }
+}

@@ -1,0 +1,6 @@
+node_modules/
+.wrangler/
+.dev.vars
+artifacts/
+__pycache__/
+npm-debug.log*
