@@ -13,7 +13,7 @@
     {
       "binding": "DB",
       "database_name": "wxpusher-parking",
-      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+      "database_id": "28c33ce2-3dd6-40ef-a46e-057f01a7545b",
       "migrations_dir": "migrations"
     }
   ],
